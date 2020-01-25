@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/playground/redux-101.js',
+    entry: './src/app.js',
     output: {
         //path prop needs to be absolute path to the output folder
         path: path.join(__dirname, 'public'),

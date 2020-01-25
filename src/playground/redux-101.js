@@ -24,15 +24,18 @@ const resetCount = () => {
 }
 
 //SET COUNT
-const setCount = ({ count = 105 } = {}) => {
+const setCount = ({ count }) => {
     return {
         type: 'SET',
         count: count
     }
 }
 
-//createStore takes in 2 arguments, the current state the store and the action to apply
-const store = createStore((state = { count: 0 }, action) => {
+//REDUCERS
+//1. Reducers are pure functions
+//2. Reducers never change state or action
+
+const countReducer = (state = { count: 0 }, action) => {
     switch (action.type) {
         case 'INCREMENT':
             return {
@@ -53,17 +56,15 @@ const store = createStore((state = { count: 0 }, action) => {
         default:
             return state;
     }
-});
+}
+
+//createStore takes in 2 arguments, the current state the store and the action to apply
+const store = createStore(countReducer);
 
 //this function is called everytime the store changes
 const unsubscribe = store.subscribe(() => {
     console.log(store.getState());
 });
-
-// store.dispatch({
-//     type: 'INCREMENT',
-//     incrementBy: 5
-// });
 
 store.dispatch(incrementCount({ incrementBy: 5 }));
 

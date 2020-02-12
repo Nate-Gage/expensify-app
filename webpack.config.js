@@ -21,17 +21,16 @@ module.exports = (env) => {
                 exclude: /node-modules/
             }, {
                 test: /\.s?css$/,
-                use: CSSExtract.extract({
-                    use: [
-                        'css-loader',
-                        'sass-loader'
-                    ]
-                })
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
             }]
         },
-        plugins: [
-            CSSExtract
-        ],
+        // plugins: [
+        //     CSSExtract
+        // ],
         devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
         devServer: {
             //contentBase has to be absolute path to the public folder

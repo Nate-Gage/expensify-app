@@ -3,7 +3,8 @@ const expensesReducerDefaultState = [];
 
 //All reducers take 2 arguments, a state and an action.
 //The state argument is a reference to the part of the state that the reducer manages,
-//in this case, the expensesReducerDefaultState array. 
+//in this case, the expensesReducerDefaultState array. Don't do HTTP reqs or 
+//use functions with side effects inside of reducers.
 const expensesReducer = (state = expensesReducerDefaultState, action) => {
     switch (action.type) {
         case 'ADD_EXPENSE':

@@ -17,16 +17,14 @@ store.dispatch(addExpense({ description: 'Gas bill', amount: 500, createdAt: 100
 store.dispatch(addExpense({ description: 'Rent bill', amount: 109500 }));
 
 const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
-
-console.log(store.getState());
 
 const jsx = (
     <Provider store={store}>
         <AppRouter />
     </Provider>
 );
+
+console.log('testing');
 
 ReactDOM.render(jsx, document.getElementById('app'));
 
